@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JQuery Append Example</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"></script> <!-- Added jQuery UI for color animation -->
+    <style>
+        #div {
+            width: 200px; 
+            height: 150px; 
+            border: solid 1pt black; 
+            margin: 10px;
+        }
+        #animText {
+            font-size: 20px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <h1>JQuery</h1>
+    <fieldset>
+        <h2>Append content to end of an existing paragraph and list</h2>
+        <button id="btnAppend">Append List</button>
+        <p id="aboutjq">JQuery dates back to 2005</p>
+        <ul id="featurejq">
+            <li>HTML/DOM Manipulation</li>
+            <li>CSS Manipulation</li>
+        </ul>
+        <script>
+            $("#btnAppend").click(function(){
+                $("#aboutjq").append("<br> The various features are: ");
+                $("#featurejq").append("<li>HTML Manipulation</li>");
+            });
+        </script>
+    </fieldset>
+    <br>
+    <fieldset>
+        <h2>Change state of CSS style elements</h2>
+        <button id="btnGrow">Animate Text - Increase Size</button>
+        <button id="btnShrink">Animate Text - Decrease Size</button>
+        <div id="animText">jQuery</div>
+        <script>
+            $("#btnGrow").click(function() {
+                $("#animText").animate({
+                    "fontSize": "+=4px" // Correct animation for font size increase
+                });
+            });
+            $("#btnShrink").click(function() {
+                $("#animText").animate({
+                    "fontSize": "-=4px", // Correct animation for font size decrease
+                    "opacity": 0.5 // Optional, to decrease opacity with size
+                });
+            });
+        </script>
+    </fieldset>
+    <br>
+    <fieldset>
+        <h2>Change color of any div that is animated</h2>
+        <input type="color" id="ipColor" />
+        <button id="btnColor">Change Color</button>
+        <br>
+        <div id="div"></div>
+        <script>
+            $("#btnColor").click(function() {
+                $("#div").animate({
+                    backgroundColor: $("#ipColor").val() // Corrected the syntax
+                }, "slow");
+            });
+        </script>
+    </fieldset>
+</body>
+</html>
